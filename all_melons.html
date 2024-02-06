@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h2>All Melons</h2>
+
+  <ul>
+    {% for melon in melon_list %}
+      <li>
+        <strong>{{ melon.common_name }}</strong>
+        <br>
+        Price: {{ melon.price_str() }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

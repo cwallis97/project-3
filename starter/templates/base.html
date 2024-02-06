@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Ubermelon</a></li>
+        <li><a href="/all-melons">All Melons</a></li>
+        <li><a href="/shopping-cart">My Shopping Cart</a></li>
+        {% if 'username' in session %}
+          <li><a href="/logout">Log Out</a></li>
+        {% else %}
+          <li><a href="/login">Log In</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  {% for message in get_flashed_messages() %}
+    <div class="flash-message">
+      {{ message }}
+    </div>
+  {% endfor %}
+
+  {% block body_content %}{% endblock %}
+{% endblock %}
